@@ -14,3 +14,8 @@ get '/addcountry' do
   country  = Country.create(name: params[:name])
   redirect '/'
 end
+
+get '/data' do
+  @countries = Country.all
+  erb :data
+end

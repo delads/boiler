@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COVID-19</title>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>    
+  </head>
+
+  <body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.0/moment.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+      <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+      <!-- Workaround that allows the Option Dropdown to execute  -->
+      <script>
+        $(document).ready(function(){
+        $('select').not('.disabled').formSelect();
+        });
+      </script>
+
+
+    <div class="container">
+  
+      <div class="row">
+          <div class="col m4 s12">
+            <h5> @country.name </h5>
+          </div>
+
+          <div class="input-field col offset-m4 m4 s12">
+            <form action="/charts/@sensor.id">
+            <select name="compare_graph">
+              <option value="" disabled selected>Choose country</option>
+              <% @countries.each do |country| %>
+                  <option value="<%= country.id %>"><%= country.name %></option>
+              <% end %>
+            </select>
+            <label>Compare Country</label>
+            <button class="btn waves-effect waves-light right" type="submit">Compare
+            <i class="material-icons right">send</i>
+            </button>
+            </form>
+          </div>
+
+        </div>
+        
+        <div style="position: relative; height:80vh; width:80vw">
+         <canvas id="myChart"></canvas>
+        
+        This is some text
+        
+
+  </body>
+</html>
