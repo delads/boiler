@@ -1,4 +1,4 @@
-# boiler
+# README
 
 ## Set up configuration files
 
