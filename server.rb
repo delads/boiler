@@ -1,21 +1,15 @@
-require 'sinatra'
-require 'active_record'
-require './models/country'
-
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/boiler_db')
-
+require './models/record'
 
 get '/' do
   erb :index
 end
 
-get '/addcountry' do
-
-  country  = Country.create(name: params[:name])
-  redirect '/'
+get '/records' do
+  @records = Record.all
+  erb :records
 end
 
-get '/data' do
-  @countries = Country.all
-  erb :data
+get '/addrecord' do
+  Record.create(name: params[:name])
+  redirect '/records'
 end

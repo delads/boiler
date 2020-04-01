@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>COVID-19</title>
+    <title>TITLE</title>
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -31,18 +31,18 @@
   
       <div class="row">
           <div class="col m4 s12">
-            <h5> @country.name </h5>
+            <h5> @record.name </h5>
           </div>
 
           <div class="input-field col offset-m4 m4 s12">
-            <form action="/charts/@sensor.id">
+            <form action="/records">
             <select name="compare_graph">
-              <option value="" disabled selected>Choose country</option>
-              <% @countries.each do |country| %>
-                  <option value="<%= country.id %>"><%= country.name %></option>
+              <option value="" disabled selected>Choose record</option>
+              <% @records.each do |record| %>
+                  <option value="<%= record.id %>"><%= record.name %></option>
               <% end %>
             </select>
-            <label>Compare Country</label>
+            <label>Compare Record</label>
             <button class="btn waves-effect waves-light right" type="submit">Compare
             <i class="material-icons right">send</i>
             </button>
